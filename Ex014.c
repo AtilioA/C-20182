@@ -26,5 +26,6 @@ int main()
     c1 = (quantiaux);
 
     printf("O valor de %i reais pode ser pago com %i cedula(s) de R$100, %i cedula(s) de R$50, %i cedula(s) de R$20, %i cedula(s) de R$10, %i cedula(s) de R$5, %i cedula(s) de R$2 e %i cedula(s) de R$1. \n", quantia, c100, c50, c20, c10, c5, c2, c1);
+    
     return 0;
 }
