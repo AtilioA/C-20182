@@ -38,5 +38,6 @@ int main()
     { // ???
         printf("Os tres numeros sao iguais. \n");
     }
+    
     return 0;
 }

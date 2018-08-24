@@ -5,15 +5,16 @@
 
 int main()
 {
-    int i, n;
+    int i, n, soma;
 
     printf("Informe n: ");
     scanf("%i", &n);
 
-    for(i = 0; i < n; i = i + 1); 
+    for(i = 0; i < n; ++i)
     {
         n = n + i;
-        printf("%i\n", n);
+        printf("%i \n", soma);
     }
+
     return 0;
 }
