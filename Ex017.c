@@ -13,18 +13,12 @@ int main()
     if ((vogal >= 'a' && vogal <= 'z') || (vogal >= 'A' && vogal <= 'Z'))
     {
         if (vogal == 'a' || vogal == 'A' || vogal == 'e' || vogal == 'E' || vogal == 'i' || vogal == 'I' || vogal == 'o' || vogal == 'O' || vogal == 'U' || vogal == 'U')
-        {
             printf("\"%c\" eh uma vogal.", vogal);
-        }
         else
-        {
             printf("\"%c\" eh uma consoante.", vogal);
-        }
     }
     else
-    {
         printf("\"%c\" nao eh uma letra.", vogal);
-    }
 
     return 0;
 }

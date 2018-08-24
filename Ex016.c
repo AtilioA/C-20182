@@ -13,10 +13,10 @@ int main()
     printf("Informe o raio: ");
     scanf("%f", &raio);
 
-    area = PI*pow(raio,2);
+    area = PI * pow(raio, 2);
     printf("Area do circulo de raio %g: %f.\n", raio, area);
 
-    raiometade = sqrt(area/(PI*2));
+    raiometade = sqrt(area / (PI * 2));
     printf("Raio do circulo com metade desta area: %f.", raiometade);
 
     return 0;

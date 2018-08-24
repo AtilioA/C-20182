@@ -15,10 +15,9 @@ int main()
         vogal = vogal - 32;
         printf("%c", vogal);
     }
+
     else
-    {
         printf("\"%c\" nao eh uma letra ou nao eh minuscula.", vogal);
-    }
-    
+
     return 0;
 }

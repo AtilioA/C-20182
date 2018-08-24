@@ -10,7 +10,7 @@ de distribuição recomeça da pessoa 1.
 int main()
 {
     int pessoas, itens, divisao;
-    
+
     printf("Informe o numero de pessoas e o numero de itens: ");
     scanf("%i%i", &pessoas, &itens);
 
@@ -19,12 +19,12 @@ int main()
         divisao = itens % pessoas;
         if (divisao == 0)
             divisao = pessoas;
-        printf("A ultima pessoa a receber o item foi a de numero %d.\n", divisao);
+        printf("A ultima pessoa a receber o item foi a de numero %i.\n", divisao);
     }
 
     if (itens == pessoas)
-        printf("A ultima pessoa a receber o item foi a de numero %d.\n", pessoas);
+        printf("A ultima pessoa a receber o item foi a de numero %i.\n", pessoas);
 
     if (itens < pessoas)
-        printf("A ultima pessoa a receber o item foi a de numero %d.\n", itens);
+        printf("A ultima pessoa a receber o item foi a de numero %i.\n", itens);
 }

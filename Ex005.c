@@ -14,19 +14,11 @@ int main()
     scanf("%d", &n2);
 
     if (n1 > n2)
-    {
         printf("%d eh o maior dentre os dois.", n1);
-    }
+    else if (n1 == n2)
+        printf("Os dois numeros sao iguais.");
     else
-    {
-        if (n1 = n2)
-        {
-            printf("Os dois numeros sao iguais.");
-        }
-        else
-        {
-            printf("%d eh o maior dentre os dois.", n2);
-        }
-    }
+        printf("%d eh o maior dentre os dois.", n2);
+
     return 0;
 }

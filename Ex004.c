@@ -24,5 +24,6 @@ float main()
         printf("A area do circulo de raio %g eh %f. \n", raio, area);
         printf("%da area calculada! \n", a);
     }
+    
     return 0;
 }
