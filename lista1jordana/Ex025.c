@@ -1,10 +1,6 @@
-// 1)
-// Um posto de gasolina está vendendo combustível com a seguinte 
-// tabela de preços:
-// Escreva  um  algoritmo  que  leia  o  número  de  litros  vendidos,  o  tipo  de  combustível 
-// (codificado da seguinte forma: 1 
-// Calcule e imprima o valor a ser pago pelo cliente, sabendo que o preço da gasolina é de R$ 3,15 e o litro do álcool é
-// de R$ 2,83.'
+// 1) Um posto de gasolina está vendendo combustível com a seguinte tabela de preços:
+// Escreva  um  algoritmo  que  leia  o  número  de  litros  vendidos e  o  tipo  de  combustível
+// Calcule e imprima o valor a ser pago pelo cliente, sabendo que o preço da gasolina é de R$ 3,15 e o litro do álcool é de R$ 2,83.
 
 #include <stdio.h>
 #include <stdlib.h>

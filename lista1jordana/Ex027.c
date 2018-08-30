@@ -21,11 +21,10 @@ int main()
         scanf("%i", &n);
     }
 
-    for(i = a; i <= n; i++)
-    {
+    for(i = a; i < a + n; i++)
         soma += i;
+
         printf("%i\n", soma);
-    }
 
     return 0;
 }

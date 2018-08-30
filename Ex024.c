@@ -1,6 +1,6 @@
 // Escreva um programa para calcular o valor de π de acordo com a
 // seguinte fórmula:
-// π =√∑ k=n 1 k62
+// π =√(n ∑ k=1 | 6/k^2)
 
 #include <stdio.h>
 #include <stdlib.h>

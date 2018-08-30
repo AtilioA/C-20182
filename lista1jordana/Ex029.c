@@ -1,5 +1,5 @@
-// Faça um algoritmo que leia a idade de um atleta e escreva em que categoria ele se
-// enquadra, seguindo o quadro
+// 3) Faça um algoritmo que leia a idade de um atleta e escreva em que categoria ele se
+// enquadra, seguindo o quadro [...]
 
 #include <stdio.h>
 #include <stdlib.h>

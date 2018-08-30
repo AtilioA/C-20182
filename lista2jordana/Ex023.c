@@ -1,4 +1,6 @@
-// Calcular a sequência de Fibonacci até n, bem como a soma de todos os termos. 
+// 4) Faça um programa para exibir e calcular a soma dos N primeiros termos da sequência
+// de Fibonacci. Esta sequência começa com os termos 1 e 1 e, a partir do terceiro termo,
+// os termos são calculados pela soma dos dois termos anteriores: 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 // Bônus: sequência negativa 🤔
 
 #include <stdio.h>
@@ -69,7 +71,7 @@ int main()
     }
 
     if (n >= 0)
-        printf("Fim da sequencia atingido. %i termos foram exibidos.\nTotal: %i.", n, soma);
+        printf("Fim da sequencia atingido. %i termos foram exibidos.\n Soma total dos termos: %i.", n, soma);
     else
         printf("Fim da sequencia atingido. %i TERMOS NEGATIVOS foram exibidos. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nTotal: %i.", n, soma);
 
