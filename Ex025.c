@@ -1,75 +1,39 @@
-// Desenvolva  um  programa  onde  o  usuário  informe  a  idade  e  se  tem  alguma  doença 
-// crônica. Caso tenha alguma doença crônica o valor da mensalidade do plano de saúde 
-// sofrerá um acréscimo conforme a tabela abaixo, no final o programa tem que informar
-// qual o valor total a ser pago na mensalidade.
+// 1)
+// Um posto de gasolina está vendendo combustível com a seguinte 
+// tabela de preços:
+// Escreva  um  algoritmo  que  leia  o  número  de  litros  vendidos,  o  tipo  de  combustível 
+// (codificado da seguinte forma: 1 
+// Calcule e imprima o valor a ser pago pelo cliente, sabendo que o preço da gasolina é de R$ 3,15 e o litro do álcool é
+// de R$ 2,83.'
 
 #include <stdio.h>
 #include <stdlib.h>
 
+#define g 3.15;
+#define a 2.83;
+
 int main()
 {
-    int idade;
-    float mens, valorTotal;
-    char doenca;
-    
-    printf("Informe a idade do cliente: \n");
-    scanf("%i", &idade);
+    int litros, tipo;
+    float valor;
 
-    printf("Informe se o cliente possui alguma doença crônica [S/N]: \n");
-    scanf(" %c", &doenca);
+    printf("Informe a quantidade de litros vendidos: ");
+    scanf("%i", &litros);
 
-    if (idade >= 0 && idade <= 18)
+    printf("Informe o tipo de combustível [1 para álcool e 2 para gasolina]: ");
+    scanf("%i", &tipo);
+
+    if (tipo == 1)
     {
-        mens = 83.15;
-        if (doenca == 'S')
-            valorTotal = mens + (mens * 0);
-        else
-            valorTotal = mens;
-        printf("Valor total a ser pago na mensalidade: R$%g.\n", valorTotal);
+        valor = litros * a;
+        printf("Valor a ser pago: R$%g.\n", valor);
     }
     
-    else if (idade >= 19 && idade <= 33)
+    if (tipo == 2)
     {
-        mens = 133.88;
-        if (doenca == 'S')
-            valorTotal = mens + (mens * 0.05);
-        else
-            valorTotal = mens;
-        printf("Valor total a ser pago na mensalidade: R$%g.\n ", valorTotal);
+        valor = litros * g;
+        printf("Valor a ser pago: R$%g.\n", valor);
     }
-
-    else if (idade >= 34 && idade <= 44)
-    {
-        mens = 203.73;
-        if (doenca == 'S')
-            valorTotal = mens + (mens * 0.10);
-        else
-            valorTotal = mens;
-        printf("Valor total a ser pago na mensalidade: R$%g.\n", valorTotal);
-    }
-
-    else if (idade >= 45 && idade <= 58)
-    {
-        mens = 312.44;
-        if (doenca == 'S')
-            valorTotal = mens + (mens * 0.15);
-        else
-            valorTotal = mens;
-        printf("Valor total a ser pago na mensalidade: R$%g.\n", valorTotal);
-    }
-
-    else if (idade >= 59)
-    {
-        mens = 498.53;
-        if (doenca == 'S')
-            valorTotal = mens + (mens * 0.30);
-        else
-            valorTotal = mens;
-        printf("Valor total a ser pago na mensalidade: R$%g.\n", valorTotal);
-    }
-
-    else 
-        printf("Nao sei.\n");
 
     return 0;
 }
