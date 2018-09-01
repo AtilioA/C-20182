@@ -24,8 +24,7 @@ int jokempo()
         scanf("%i", &player);
     }
 
-    for (i = 1; i <= 3; i++)
-        pc = rand() % 3 + 1;
+    pc = rand() % 3 + 1;
 
     if (player == 1 && pc == 2)
         printf("Voce perdeu! Pedra eh embrulhada por papel.");
@@ -61,7 +60,10 @@ int main()
         if (r == 'S' || r == 's')
             main();
         else if (r == 'N' || r == 'n')
+        {
+            printf("-- FINALIZANDO JOGO --\n");
             exit(0);
+        }
         else
         {
             printf("que");
