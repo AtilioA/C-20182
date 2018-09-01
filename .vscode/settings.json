@@ -6,5 +6,8 @@
     },
     "C_Cpp.intelliSenseEngineFallback": "Disabled",
     "C_Cpp.errorSquiggles": "Enabled",
-    "python.pythonPath": "C:\\Users\\Casa\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    // "python.pythonPath": "C:\\Users\\Casa\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+    "editor.fontSize": 16,
 }
