@@ -7,7 +7,7 @@
 
 int jokempo()
 {
-    int player, pc, i, sair;
+    int player, pc, i;
     srand(time(0));
     pc = rand();
 
@@ -73,5 +73,5 @@ int main()
         }
     }
 
-        return 0;
+    return 0;
 }
