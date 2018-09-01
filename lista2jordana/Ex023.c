@@ -6,74 +6,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int fibonnaci(int n)
+{
+    if (n == 1 || n == 2)
+        return 1;
+    else
+        return fibonnaci(n - 1) + fibonnaci(n - 2);
+}
+
+int fibonnaciN(int n)
+{
+    if (n == -1 || n == -2)
+        return -1;
+    else
+        return fibonnaciN(n + 1) + fibonnaciN(n + 2);
+}
+
 int main()
 {
-    int a, b, aux, i, n, soma;
+    int n = 0, i = 0, soma = 0;
+
     printf("Quantos termos da sequencia de Fibonacci? ");
     scanf("%i", &n);
 
-    a = 1;
-    b = 1;
-    soma = 0;
-
-    if (n >= 2)
-    {
-        soma = 2;
-        printf("%d \n", a);
-        printf("%d \n", b);
-    }
-    
-    else if (n == 1)
-    {
-        soma = 1;
-        printf("%d \n", a);
-    }
-    
-    if (n <= -2)
-    {
-        soma = -2;
-        printf("talkei\n");
-        printf("%d \n", -a);
-        printf("%d \n", -b);
-    }
-
-    else if (n == -1)
-    {
-        soma = -1;
-        printf("talkei\n");
-        printf("%d \n", -a);
-    }
-
-    if (n >= 3)
-    {
-        for (i = 3; i <= n; ++i)
-        {
-            aux = a + b;
-            printf("%i \n", aux);
-            b = a;
-            a = aux;
-            soma = soma + aux;
-        }
-    }
-
     if (n < 0)
-    {
-        a = -1;
-        b = -1;
-        for (i = -3; i >= n; --i)
+        for (i = -1; i >= n; --i)
         {
-            aux = a + b;
-            printf("%i \n", aux);
-            b = a;
-            a = aux;
-            soma = soma + aux;
+            soma += fibonnaciN(i);
+            printf("%i ", fibonnaciN(i));
         }
-    }
 
     if (n >= 0)
-        printf("Fim da sequencia atingido. %i termos foram exibidos.\n Soma total dos termos: %i.", n, soma);
+        for (i = 1; i <= n; ++i)
+        {
+            soma += fibonnaci(i);
+            printf("%i ", fibonnaci(i));
+        }
+
+    if (n >= 0)
+        printf("\nFim da sequencia atingido. %i termos foram exibidos.\nSoma total dos termos: %i.", n, soma);
     else
-        printf("Fim da sequencia atingido. %i TERMOS NEGATIVOS foram exibidos. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nTotal: %i.", n, soma);
+        printf("\nFim da sequencia atingido. %i TERMOS NEGATIVOS foram exibidos. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nSoma total dos termos: %i.", n, soma);
 
     return 0;
 }
