@@ -13,7 +13,7 @@ int main()
     int op = 0, ops = 0;
     float saldoInicial, valor, saldoFinal;
 
-    printf("Informe o saldo inicial: ");
+    printf("Informe o saldo bancario: ");
     scanf("%f", &saldoInicial);
 
     while (op != 3)
@@ -26,6 +26,8 @@ int main()
             printf("Opcao invalida. Digite 1 para depósito; 2 para retirada ou 3 para finalizar\n");
            scanf("%i", &op);   
         }
+
+        // Switch-case poderia ter sido usado
 
         if (op == 1)
         {

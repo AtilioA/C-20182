@@ -1,5 +1,3 @@
-// 8) Observe a seguinte propriedade que alguns números maiores que 1000 e menores que 9999 possuem [...]
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -16,7 +14,7 @@ int main()
         ef = ab + cd;
 
         if (pow(ef, 2) == abcd)
-            printf("%i\n%i + %i = %i\n%i^2 = %i\n\n", abcd, ab, cd, ef, ef, abcd);
+            printf("%i\n%i + %i = %i\n%i^2 = %i\n", abcd, ab, cd, ef, ef, abcd);
     }
 
     return 0;

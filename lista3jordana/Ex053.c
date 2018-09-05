@@ -16,7 +16,7 @@ int main()
     int n1, n2, div;
     char resp = 'S';
 
-    while (resp != 'N' && resp != 'n')
+    while (resp == 'S' || resp == 's')
     {
         printf("Informe o valor do primeiro numero: ");
         scanf("%i", &n1);    
@@ -26,15 +26,20 @@ int main()
 
         while (n2 == 0)
         {
-            printf("VALOR INVALIDO (divisao por zero) Informe o valor do primeiro numero: ");
+            printf("VALOR INVALIDO (divisao por zero)\nInforme outro valor para o segundo numero: ");
             scanf("%i", &n2);    
         }    
 
         div = n1 / n2;
         printf("%i.\n", div);
 
-        printf("DESEJA REALIZAR OUTRO CÁLCULO? (S/N)\n");
+        printf("DESEJA REALIZAR OUTRO CALCULO? (S/N)\n");
         scanf(" %c", &resp);
+        while ((resp != 'N' && resp != 'n') && (resp != 'S' && resp != 's'))
+        {
+            printf("OPCAO INVALIDA. DESEJA REALIZAR OUTRO CALCULO? (S/N)\n");
+        scanf(" %c", &resp);
+    }
     }
 
     return 0;

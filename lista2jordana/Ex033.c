@@ -9,7 +9,7 @@ int main()
     char c1, c2;
 
     printf("Informe o primeiro caractere: ");
-    scanf("%c", &c1);
+    scanf(" %c", &c1);
 
     printf("Informe o segundo caractere: ");
     scanf(" %c", &c2);

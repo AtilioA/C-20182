@@ -22,6 +22,7 @@ int main()
 
     printf("S2 = ");
     a = 1;
+    i = 50;
     while (i >= 1)
     {
         termo = ((pow(2, a)) / i);
@@ -30,7 +31,7 @@ int main()
         a += 1;
         i -= 1;
     }
-    printf("0. Fim.\nSoma 2: %.1f.\n", s2);
+    printf("0. Fim.\nSoma 2: %.3f.\n", s2);
     puts("----------------------------------------");
 
     printf("S3 = ");

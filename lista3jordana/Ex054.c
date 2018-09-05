@@ -4,6 +4,8 @@
 // b) A média da altura das mulheres.
 // c) A média da altura dos homens
 
+// Po, esculachei nessa
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -38,12 +40,15 @@ int main()
         if (sexo == 1)
         {
             masc += 1;
+
             if (masc == 1)
             {
                 maiorH = altura;
                 menorH = altura;
             }
+
             totalH += altura;
+
             if (altura > maiorH)
                 maiorH = altura;
             else if (altura < menorH)
@@ -53,12 +58,15 @@ int main()
         else if (sexo == 2)
         {
             fem += 1;
+
             if (fem == 1)
             {
                 maiorM = altura;
                 menorM = altura;
             }
+
             totalM += altura;
+
             if (altura >= maiorM)
                 maiorM = altura;
             else if (altura < menorM)
@@ -92,3 +100,10 @@ int main()
 
     return 0;
 }
+
+/*
+questão: A maior e a menor altura da turma.
+jordana: float menor = 0;
+        if (h2 < menor)
+            menor = h2;
+*/

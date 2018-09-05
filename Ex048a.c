@@ -2,8 +2,6 @@
 // abaixo, até que S assuma um valor mais próximo possível de um
 // limite dado como entrada.
 
-// Consertar soma superior
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -11,7 +9,7 @@
 int main()
 {
     int lim, i = 0;
-    float sFloor, sCeil, distFloor, distCeil, s, controlaSoma;
+    float sFloor = 0, sCeil = 0, distFloor, distCeil, s, controlaSoma;
 
     printf("Informe o limite para S: ");
     scanf("%i", &lim);
