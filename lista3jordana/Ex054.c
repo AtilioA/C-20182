@@ -40,15 +40,22 @@ int main()
         if (sexo == 1)
         {
             masc += 1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a552121eb2ad44d8c162b5879b27eaa049f5b624
             if (masc == 1)
             {
                 maiorH = altura;
                 menorH = altura;
             }
+<<<<<<< HEAD
 
             totalH += altura;
 
+=======
+            totalH += altura;
+>>>>>>> a552121eb2ad44d8c162b5879b27eaa049f5b624
             if (altura > maiorH)
                 maiorH = altura;
             else if (altura < menorH)
@@ -58,15 +65,22 @@ int main()
         else if (sexo == 2)
         {
             fem += 1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a552121eb2ad44d8c162b5879b27eaa049f5b624
             if (fem == 1)
             {
                 maiorM = altura;
                 menorM = altura;
             }
+<<<<<<< HEAD
 
             totalM += altura;
 
+=======
+            totalM += altura;
+>>>>>>> a552121eb2ad44d8c162b5879b27eaa049f5b624
             if (altura >= maiorM)
                 maiorM = altura;
             else if (altura < menorM)
@@ -100,6 +114,7 @@ int main()
 
     return 0;
 }
+<<<<<<< HEAD
 
 /*
 questão: A maior e a menor altura da turma.
@@ -107,3 +122,5 @@ jordana: float menor = 0;
         if (h2 < menor)
             menor = h2;
 */
+=======
+>>>>>>> a552121eb2ad44d8c162b5879b27eaa049f5b624
