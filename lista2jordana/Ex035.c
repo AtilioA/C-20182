@@ -11,22 +11,16 @@ int main()
 {
     int x, y, aux, gcd;
 
-    printf("Inform x: ");
+    printf("Informe x: ");
     scanf("%i", &x);
 
-    printf("Inform y: ");
+    printf("Informe y: ");
     scanf("%i", &y);
 
     printf("GCD(%i, %i) ->\n", x, y);
 
     while (x > 0)
     {
-        if (x > y)
-        {
-            x = x - y;
-            printf("GCD(%i, %i) ->\n", x, y);
-        }
-
         if (x < y)
         {
             aux = x;
@@ -35,11 +29,17 @@ int main()
             printf("GCD(%i, %i) ->\n", x, y);
         }
 
-        if (x == y)
+        else if (x == y)
         {
-            printf("GCD(%i, %i) = %i. \nFim.\n", x, y, x);
             gcd = x;
+            printf("GCD(%i, %i) = %i. \nFim.\n", x, y, gcd);
             break;
+        }
+
+        else 
+        {
+            x = x - y;
+            printf("GCD(%i, %i) ->\n", x, y);
         }
     }
 
