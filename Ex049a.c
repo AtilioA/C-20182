@@ -5,16 +5,15 @@
 
 int semiFatorial(int n)
 {
-    int i, semiFat = 1;
-
-    for (i = n; i > 1; i -= 2)
+    if (n > 1)
     {
-        semiFat = (semiFat * i);
+        return n * semiFatorial(n - 2);
     }
 
-    printf("semiFat: %i.", semiFat);
-
-    return semiFat;
+    else
+    {
+        return 1;
+    }
 }
 
 int main()
@@ -30,7 +29,7 @@ int main()
         scanf("%i", n);
     }
 
-    semiFatorial(n);
+    printf("Semifatorial de %i: %i.\n", n, semiFatorial(n));
 
     return 0;
 }
