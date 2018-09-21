@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 // 2. Escreva uma função que receba 2 números inteiros e retorne o seu
 // produto.
-=======
-//
->>>>>>> 276d982c016e564440a1aa123661384b0fe196b7
 
 #include <stdio.h>
 #include <stdlib.h>
 
-<<<<<<< HEAD
 int produto(int n1, int n2)
 {
     int produto;
@@ -29,11 +24,3 @@ int main()
 
     return 0;
 }
-=======
-int main()
-{
-    int ;
-
-    return 0;
-}
->>>>>>> 276d982c016e564440a1aa123661384b0fe196b7
