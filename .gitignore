@@ -59,3 +59,4 @@ dkms.conf
 .vscode/settings.json
 .vscode/c_cpp_properties.json
 *.json
+.vscode/settings.json

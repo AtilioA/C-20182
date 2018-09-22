@@ -22,7 +22,7 @@ int main()
 
         while (km <= 0)
         {
-            invalid += 1;
+            invalid++;
             printf("Quilometragem INVALIDA. Informe uma quilometragem maior que zero: ");
             scanf("%f", &km);
         }
@@ -33,15 +33,16 @@ int main()
         scanf(" %c", &resp);
         while ((resp != 'S') && (resp != 'N'))
         {
-            invalid += 1;
+            invalid++;
             printf("Opcao INVALIDA. Responda com S ou N. Deseja realizar nova leitura? ");
             scanf(" %c", &resp);
         }
 
         carros += 1;
+
         }
 
-    printf("Quantidade de carros pesquisados: %i.\nQuilometragem total: %g.\nQuantidade de dados invalidos: %i km.\n", carros, kmTotal, invalid);
+    printf("Quantidade de carros pesquisados: %i.\nQuilometragem total: %g km.\nQuantidade de dados invalidos: %i.\n", carros, kmTotal, invalid);
 
     return 0;
 }

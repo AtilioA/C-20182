@@ -7,7 +7,7 @@ float main()
 {
     float media;
     int valor1, valor2, valor3;
-
+    
     printf("Digite o valor 1: ");
     scanf("%d", &valor1);
 
