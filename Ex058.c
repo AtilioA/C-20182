@@ -1,28 +1,29 @@
-// 1. Escreva uma função que receba um número inteiro e retorne o seu
-// antecessor
+// 2. Escreva uma função recursiva para calcular a soma dos n primeiros
+// números inteiros, onde n será lido do teclado.
 
 #include <stdio.h>
 #include <stdlib.h>
 
 
-int Antecessor(int n1)
+int Soma(int n)
 {
-    int ant;
-
-    ant = n1 - 1;
-
-    return ant;
+    if(n != 0)
+    {
+        return n + Soma(n-1);
+    }
+    else
+    {
+        return n;
+    }
 }
 
 
 int main()
 {
-    int n1;
+    int n;
+    printf("Informe n: ");
+    scanf("%i", &n);
 
-    printf("Informe um numero: ");
-    scanf("%i", &n1);
-
-    printf("O seu antecessor eh %i.\n", Antecessor(n1));
-
+    printf("Soma dos %i primeiros números inteiros: %i.\n", n, Soma(n));
     return 0;
 }

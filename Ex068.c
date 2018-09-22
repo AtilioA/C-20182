@@ -1,27 +1,35 @@
-// 2. Escreva uma função recursiva para calcular a soma dos n primeiros
-// números inteiros, onde n será lido do teclado.
+// 3. Escreva uma função recursiva para calcular o valor de uma base x
+// elevada a um expoente y.
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int Soma(int n)
+int exp(int x, int y)
 {
-    if (n != 0)
+    if (y == 0)
     {
-        return n + Soma(n - 1);
+        return 1;
     }
+
+    else if (y == 1)
+    {
+        return x;
+    }
+
     else
     {
-        return n;
+        return x * exp(x, y - 1);
     }
 }
 
 int main()
 {
-    int n;
-    printf("Informe n: ");
-    scanf("%i", &n);
+    int x, y;
 
-    printf("Soma dos %i primeiros números inteiros: %i.\n", n, Soma(n));
+    printf("Informe x e y: ");
+    scanf("%i%i", &x, &y);
+
+    printf("%i^%i = %i.\n", x, y, exp(x, y));
+
     return 0;
 }
