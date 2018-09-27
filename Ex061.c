@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // 3) Utilizando switch case, fa ç a um programa que contenha um menu com as seguintes op çõ es: 
 // a. Ler uma string S1 (tamanho máximo 20 caracteres); 
 // b. Imprimir o tamanho da string S1; 
@@ -84,3 +85,32 @@ int main()
 }
 
 */
+=======
+// 4. Escreva uma função que receba 3 números reais (ponto flutuante) e
+// retorne a sua média aritmética.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float mediaFloat(float n1, float n2, float n3)
+{
+    float media;
+
+    media = (n1 + n2 + n3) / 3;
+
+    return media;
+}
+
+
+int main()
+{
+    float n1, n2, n3;
+
+    printf("Informe os tres numeros: ");
+    scanf("%f%f%f", &n1, &n2, &n3);
+
+    printf("Media dos tres numeros: %g.\n", mediaFloat(n1, n2, n3));
+
+    return 0;
+}
+>>>>>>> b7f0b2e90d6c75056d85e5b48249c79acecfe5ae

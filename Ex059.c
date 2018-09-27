@@ -1,24 +1,26 @@
-// 1) Elabore um programa que leia um número N, inteiro, converta-o para binário e calcule a quantidade de dígitos binários desse número.
+// 2. Escreva uma função que receba 2 números inteiros e retorne o seu
+// produto.
 
 #include <stdio.h>
 #include <stdlib.h>
 
+int produto(int n1, int n2)
+{
+    int produto;
+    produto = n1 * n2;
+
+    return produto;
+}
+
+
 int main()
 {
-    int n = 0, i = 0, binario[50];
-    
-    printf("Informe n: ");
-    scanf("%i", &n);
+    int n1, n2;
 
-    while (n != 0)
-    {
-        binario[i] = (n % 2);
-        n /= 2;
-        printf("%i.\n", binario[i]);
-        i++;
-    }
+    printf("Informe dois numeros: ");
+    scanf("%i%i", &n1, &n2);
 
-    printf("Quantidade de digitos binarios: %i\n", i);
- 
+    printf("Produto: %i.\n", produto(n1, n2));
+
     return 0;
 }
