@@ -20,13 +20,9 @@ int main()
     raiz2 = (-b - sqrt(delta)) / (2 * a);
 
     if (delta < 0)
-    {
         printf("A equacao nao possui raizes reais.");
-    }
     else
-    {
         printf("R1 = %g e R2 = %g", raiz1, raiz2);
-    }
 
     return 0;
 }

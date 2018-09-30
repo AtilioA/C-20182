@@ -1,0 +1,15 @@
+// Coloque suas combinações de teclas neste arquivo para substituir os padrões
+[
+    {
+        "key": "ctrl+k ctrl+l",
+        "command": "workbench.action.focusPanel"
+    },
+    {
+        "key": "shift+alt+p",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "-workbench.action.showCommands"
+    }
+]

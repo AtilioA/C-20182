@@ -18,19 +18,13 @@ int main()
         f = (temp * 9 / 5) + 32;
         printf("%g graus Celsius equivalem a %g graus Fahrenheit.\n", temp, f);
     }
-    else
+    else if (escala == 'F' || escala == 'f')
     {
-        if (escala == 'F' || escala == 'f')
-        {
-            f = temp;
-            c = (temp - 32) * 5 / 9;
-            printf("%g graus Fahrenheit equivalem a %g graus Celsius.\n", f, c);
-        }
-
-        else
-        {
-            printf("Escala invalida. Tente novamente.");
-        }
+        f = temp;
+        c = (temp - 32) * 5 / 9;
+        printf("%g graus Fahrenheit equivalem a %g graus Celsius.\n", f, c);
     }
+    else
+        printf("Escala invalida. Tente novamente.");
     return 0;
 }

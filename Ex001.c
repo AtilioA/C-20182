@@ -16,12 +16,9 @@ int main()
     dist = sqrt((x1 - xc) * (x1 - xc) + (y1 - yc) * (y1 - yc));
 
     if (dist <= 3)
-    {
         printf("O ponto (%g,%g) pertence ao circulo de raio 3 e centro (3,3). \n", x1, y1);
-    }
     else
-    {
         printf("O ponto (%g,%g) NAO pertence ao circulo de raio 3 e centro (3,3). \n", x1, y1);
-    }
+
     return 0;
 }

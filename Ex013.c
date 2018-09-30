@@ -17,21 +17,13 @@ int main()
     scanf("%f", &n2);
 
     media = (n1 + n2) / 2;
+
     if (media >= 7)
-    {
         printf("Media %.1f - Aprovado", media);
-    }
+    else if (media < 5)
+        printf("Media %.1f - Reprovado", media);
     else
-    {
-        if (media < 5)
-        {
-            printf("Media %.1f - Reprovado", media);
-        }
-        else
-        {
-            printf("Media %.1f - Em recuperacao", media);
-        }
-    }
+        printf("Media %.1f - Em recuperacao", media);
 
     return 0;
 }
