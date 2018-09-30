@@ -95,7 +95,6 @@ int menu(char op)
         case 'a':
             leString();
         break;
-
         case 'b':
             tamanhoString(s1);
         break;
