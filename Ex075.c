@@ -26,7 +26,7 @@ int main()
         scanf("%i", &n[i]);
     }
 
-    printf("%i.\n", soma_vetor(n));
+    printf("Soma dos elementos do vetor: %i.\n", soma_vetor(n));
 
     return 0;
 }

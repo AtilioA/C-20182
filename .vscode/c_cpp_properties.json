@@ -8,7 +8,9 @@
                 "C:/Program Files/Haskell Platform/8.2.2/mingw/include/c++/6.2.0/tr1",
                 "C:/Program Files/Haskell Platform/8.2.2/mingw/include/c++/6.2.0",
                 "C:/Program Files/Haskell Platform/8.2.2/mingw/include/c++/6.2.0/x86_64-w64-mingw32",
-                "C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0/include/ssp"
+                "C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0/include/ssp",
+                "C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0/include/ssp",
+                "C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/include"
             ],
             "defines": [
                 "_DEBUG",
