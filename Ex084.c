@@ -8,13 +8,13 @@ informa elementos repetidos). Utilizando a estrutura switch case, fa:ça:
 #define len 3
 
 int printaVet(int vetor[]);
+int intersecc(int x[], int y[]);
 
-// oq é lenga??
 int main()
 {
     char op;
     int x[len], y[len], i = 0, j = 0, lenga = 0,
-    soma[len], prod[len], sub[len], intersecc[5], dif[len];
+    soma[len], prod[len], sub[len], dif[len];
 
     printf("Informe um vetor de 5 elementos sem repeticao: ");
     for (i = 0; i < len; i++)
@@ -28,28 +28,9 @@ int main()
         scanf("%i", &y[i]);
     }
 
-    for (i = 0; i < len; i++)
-    {
-        for (j = 0; j < len; j++)
-        {
-            if (x[j] == y[i])
-            {
-                intersecc[lenga] = x[j];
-                lenga++;
-                break;
-            }
-
-        }
-        // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        if (x[i] != y[i])
-        {
-            dif[i] = x[i];
-        }
-
         soma[i] = x[i] + y[i];
         sub[i] = x[i] - y[i];
         prod[i] = x[i] * y[i];
-    }
 
     while (op != 'Z')
     {
@@ -78,13 +59,11 @@ int main()
         break;
 
         case 'I':
-        printf("Sei mais ou menos brother");
-        printaVet(intersecc);
+        intersecc(x, y);
 
         break;
 
         case 'D':
-        printf("Sei nao brother");
         printaVet(dif);
         break;
 
@@ -108,4 +87,24 @@ int printaVet(int vetor[])
 
     printf("\n");
 
+}
+
+int intersecc(int x[], int y[])
+{
+    int i, j;
+
+    for (i = 0; i < len; i++)
+    {
+        for (j = 0; j < len; j++)
+        {
+            if (x[i] == y[j])
+            {
+                printf("[%i]", x[i]);
+            }
+        }
+    }
+
+    printf("\n");
+
+    return 0;
 }
