@@ -34,7 +34,7 @@ int main()
 
     digitos[i] = '\0';
 
-    printf("John precisara de %i LEDs para montar seu painel.\n", segmentos(digitos));
+    printf("John precisara de %i LEDs para montar seu painel'.\n", segmentos(digitos));
 
     return 0;
 }
