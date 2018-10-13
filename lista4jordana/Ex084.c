@@ -14,7 +14,7 @@ int main()
 {
     char op;
     int x[len], y[len], i = 0, j = 0, lenga = 0,
-    soma[len], prod[len], sub[len], dif[len];
+                        soma[len], prod[len], sub[len], dif[len];
 
     printf("Informe um vetor de 5 elementos sem repeticao: ");
     for (i = 0; i < len; i++)
@@ -28,49 +28,48 @@ int main()
         scanf("%i", &y[i]);
     }
 
-        soma[i] = x[i] + y[i];
-        sub[i] = x[i] - y[i];
-        prod[i] = x[i] * y[i];
+    soma[i] = x[i] + y[i];
+    sub[i] = x[i] - y[i];
+    prod[i] = x[i] * y[i];
 
     while (op != 'Z')
     {
-    printf("Digite a operacao:\n");
-    printf("S = SOMA ENTRE AS POSICOES\n");
-    printf("P = PRODUTO ENTRE AS POSICOES\n");
-    printf("M = SUBTRACAO ENTRE AS POSICOES\n");
-    printf("I = INTERSECAO DOS VETORES\n");
-    printf("D = DIFERENCA DOS VETORES\n");
-    printf("Z = SAIR\n");
+        printf("Digite a operacao:\n");
+        printf("S = SOMA ENTRE AS POSICOES\n");
+        printf("P = PRODUTO ENTRE AS POSICOES\n");
+        printf("M = SUBTRACAO ENTRE AS POSICOES\n");
+        printf("I = INTERSECAO DOS VETORES\n");
+        printf("D = DIFERENCA DOS VETORES\n");
+        printf("Z = SAIR\n");
 
-    scanf(" %c", &op);
+        scanf(" %c", &op);
 
-    switch (op)
-    {
+        switch (op)
+        {
         case 'S':
-        printaVet(soma);
-        break;
+            printaVet(soma);
+            break;
 
         case 'P':
-        printaVet(prod);
-        break;
+            printaVet(prod);
+            break;
 
         case 'M':
-        printaVet(sub);
-        break;
+            printaVet(sub);
+            break;
 
         case 'I':
-        intersecc(x, y);
+            intersecc(x, y);
 
-        break;
+            break;
 
         case 'D':
-        printaVet(dif);
-        break;
+            printaVet(dif);
+            break;
 
         case 'Z':
-        break;
-
-    }
+            break;
+        }
     }
 
     return 0;
@@ -86,7 +85,6 @@ int printaVet(int vetor[])
     }
 
     printf("\n");
-
 }
 
 int intersecc(int x[], int y[])
