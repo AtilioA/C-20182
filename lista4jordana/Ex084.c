@@ -1,11 +1,11 @@
-/* Leia dois vetores inteiros x e y, cada um com len elementos (assuma que o usuário não
+/* 6) Leia dois vetores inteiros x e y, cada um com 3 elementos (assuma que o usuário não
 informa elementos repetidos). Utilizando a estrutura switch case, fa:ça:
 */
 
 #include <stdio.h>
 #include <string.h>
 
-#define len 3
+#define LENGTH 3
 
 int printaVet(int vetor[]);
 int intersecc(int x[], int y[]);
@@ -13,17 +13,17 @@ int intersecc(int x[], int y[]);
 int main()
 {
     char op;
-    int x[len], y[len], i = 0, j = 0, lenga = 0,
-                        soma[len], prod[len], sub[len], dif[len];
+    int x[LENGTH], y[LENGTH], i = 0, j = 0, lenga = 0,
+                        soma[LENGTH], prod[LENGTH], sub[LENGTH], dif[LENGTH];
 
     printf("Informe um vetor de 5 elementos sem repeticao: ");
-    for (i = 0; i < len; i++)
+    for (i = 0; i < LENGTH; i++)
     {
         scanf("%i", &x[i]);
     }
 
     printf("Informe outro vetor de 5 elementos sem repeticao: ");
-    for (i = 0; i < len; i++)
+    for (i = 0; i < LENGTH; i++)
     {
         scanf("%i", &y[i]);
     }
@@ -79,7 +79,7 @@ int printaVet(int vetor[])
 {
     int i;
 
-    for (i = 0; i < len; i++)
+    for (i = 0; i < LENGTH; i++)
     {
         printf("[%i] ", vetor[i]);
     }
@@ -91,9 +91,9 @@ int intersecc(int x[], int y[])
 {
     int i, j;
 
-    for (i = 0; i < len; i++)
+    for (i = 0; i < LENGTH; i++)
     {
-        for (j = 0; j < len; j++)
+        for (j = 0; j < LENGTH; j++)
         {
             if (x[i] == y[j])
             {

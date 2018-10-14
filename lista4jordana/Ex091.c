@@ -5,24 +5,67 @@ deveria pedir para ele digitar outro número. Note que cada valor digitado pelo 
 deve ser pesquisado no vetor, verificando se ele existe entre os números que já foram
 fornecidos. Exibir na tela o vetor final que foi digitado. */
 
-
 #include <stdio.h>
 #include <string.h>
 
-int bosta(char);
+#define LENGTH 10
+
+int printaVet(int vet[]);
+int jaOcorreu(int pos, int vet[], int n);
 
 int main()
 {
-    char frase[100];
-    int i;
+    int i, vet[LENGTH];
 
-    printf("Informe uma string: ");
-    gets(frase);
+    printf("Informe o vetor:\n");
+    for (i = 0; i < LENGTH; i++)
+    {
+        scanf("%i", &vet[i]);
+
+        while (jaOcorreu(i, vet, vet[i]) == 1)
+        {
+            printf("Este elemento ja ocorreu no vetor. Por favor, informe outro numero:\n");
+            scanf("%i", &vet[i]);
+        }
+    }
+
+    printaVet(vet);
 
     return 0;
 }
 
-int bosta(char frase)
+int jaOcorreu(int pos, int vet[], int n)
 {
+    int i, ocorr = 0;
 
+    for (i = 0; i < pos; i++)
+    {
+        if (vet[i] == n)
+        {
+            ocorr++;
+        }
+    }
+
+    if (ocorr >= 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int printaVet(int vet[])
+{
+    int i;
+
+    for (i = 0; i < LENGTH; i++)
+    {
+        printf("[%i] ", vet[i]);
+    }
+
+    printf("\n");
+
+    return 0;
 }

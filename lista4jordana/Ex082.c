@@ -50,6 +50,8 @@ int ehPrimo(int n)
     }
 }
 
+
+// ?
 int ehPrimo2(int n)
 {
     int i, divs;

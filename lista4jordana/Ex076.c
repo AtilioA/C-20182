@@ -14,47 +14,119 @@ h. Substituir a primeira oco rrência do caractere C1 da string S1 pelo caracter
 
 #define LENGTH 21
 
-menu(char op, char s1[]);
-int leS1();
-int leS2();
-int reversa(char s1[]);
-int tamanhoString(char s1);
+
+int menu();
+
+int leS1(char s1[]);
+int leS2(char s2[]);
+
+int reversa(char s[]);
+int tamanhoString(char s[]);
+int ocorreC(char s[], char c);
 int compString(char s1[], char s2[]);
-int menu(char op, char s1[]);
+int substitui(char s1[], char c1, char c2);
+int substring(char s1[]);
 
 
 int main()
 {
-    char s1[21] = "vai tomar no cu";
-    char s2[21] = "nao vou nao";
-    char op = '0';
-    menu(op, s1);
+    char s1[LENGTH] = "frase de teste";
+    char s2[LENGTH] = "outra";
+    char c1 = '\0', c2 = '\0', c;
+
+    menu();
 
     return 0;
 }
 
-
-
-int leS1()
+int menu()
 {
-    char s1[21];
+    char op = '1';
+    char s1[LENGTH] = "frase de teste";
+    char s2[LENGTH] = "outra";
+    char s3[LENGTH];
+    char s3concat[LENGTH];
 
-    scanf("%s", &s1);
+    char c, c1, c2;
 
-    return s1;
+    while (op != '0')
+    {
+        printf("\nOPCOES:\n");
+        printf("a - ler uma string\n");
+        printf("b - imprimir o tamanho da string\n");
+        printf("c - compara a string com uma nova string\n");
+        printf("d - concatena a string com uma nova string e imprime o resultado\n");
+        printf("e - imprime a string na ordem reversa\n");
+        printf("f - retorna a quantidade de vezes que um caractere ocorre na string\n");
+        printf("g - retorna uma substring de S1 a partir de uma posicao e do tamanho da substring\n");
+        printf("h - substituir a primeira ocorrencia de C1 da primeira string por C2.\n");
+        printf("0 - sair\n");
+        printf("Sua opcao: ");
+        scanf(" %c", &op);
+
+        switch (op)
+        {
+        case 'a':
+            printf("Informe a nova string:\n");
+            leS1(s1);
+            break;
+
+        case 'b':
+            printf("Tamanho da string s1: %i.\n", tamanhoString(s1));
+            break;
+
+        case 'c':
+            printf("Informe a nova string a ser usada para comparacao: ");
+            leS2(s2);
+            compString(s1, s2);
+            break;
+
+        case 'd':
+            printf("Informe a nova string a ser concatenada: ");
+            leS2(s2);
+            strcpy(s3, s1);
+            strcpy(s3concat, strcat(s1, s2));
+            strcpy(s1, s3);
+            printf("Concatenacao das strings: %s", s3concat);
+            break;
+
+        case 'e':
+            printf("S1 REVERSA:\n");
+            reversa(s1);
+            break;
+
+        case 'f':
+            printf("Informe o caractere a ser verificado na string: ");
+            scanf(" %c", &c);
+            printf("Este caractere ocorre %i vez(es) na string.\n", ocorreC(s1, c));
+            break;
+
+        case 'g':
+            substring(s1);
+            break;
+
+        case 'h':
+            printf("Informe o caractere a ser verificado e substituido na string: ");
+            scanf(" %c", &c1);
+            printf("Informe o caractere que ira substituir '%c' na string: ", c1);
+            scanf(" %c", &c2);
+            printf("Nova string:\n");
+            substitui(s1, c1, c2);
+            break;
+
+        case '0':
+            break;
+
+        default:
+            printf("\nOpcao invalida. Tente novamente:\n");
+            break;
+        }
+    }
+
+    return 0;
 }
 
-int leS2()
-{
-    char s2[21];
-
-    scanf("%s", &s2);
-
-    return s2;
-}
-
-// b. (para imprimir o tamanho de s1)
-int tamanhoString(char s1)
+int tamanhoString(char s1[])
 {
     int tamanho;
 
@@ -63,19 +135,56 @@ int tamanhoString(char s1)
     return tamanho;
 }
 
-// e. (para imprimir s1 na ordem reversa)
-int reversa(char s1[])
+int leS1(char s1[])
 {
-    int i, lens1 = strlen(s1);
+    char novas1[LENGTH];
 
-    printf("S1 REVERSA:\n");
-    for(i = lens1; i >= 0; i--)
-    {
-        printf("%c", s1[i]);
-    }
+    fgetc(stdin);
+    gets(novas1);
+
+    strcpy(s1, novas1);
+
+    return 0;
 }
 
-// c. (para comparar s1 com uma nova string s2)
+int leS2(char s2[])
+{
+    char novas2[LENGTH];
+
+    fgetc(stdin);
+    fgets(novas2, LENGTH, stdin);
+
+    strcpy(s2, novas2);
+
+    return 0;
+}
+
+int reversa(char s[])
+{
+    int i, lens = strlen(s);
+
+    for (i = lens; i >= 0; i--)
+    {
+        printf("%c", s[i]);
+    }
+
+    return 0;
+}
+
+int ocorreC(char s[], char c)
+{
+    int i, ocorr = 0;
+
+    for (i = 0; s[i] != '\0'; i++)
+    {
+        if (s[i] == c)
+        {
+            ocorr++;
+        }
+    }
+
+    return ocorr;
+}
 
 int compString(char s1[], char s2[])
 {
@@ -83,68 +192,59 @@ int compString(char s1[], char s2[])
 
     if (comp > 0)
     {
-        printf("S1 é maior que S2.\n");
+        printf("S1 eh maior que S2.\n");
     }
     else if (comp < 0)
     {
-        printf("S2 é maior que S2.\n");
+        printf("S2 eh maior que S1.\n");
     }
     else
     {
-        printf("As strings são iguais.\n");
+        printf("As strings sao iguais.\n");
     }
 
-    printf("abc.\n");
-    printf("%i", compString(s1, s2));
+    return 0;
 }
 
-
-int menu(char op, char s1[])
+int substring(char s1[])
 {
-    printf("a - ler uma string");
-    printf("b - imprimir o tamanho da string");
-    printf("c - compara a string com uma nova string");
-    printf("d - concatena a string com uma nova string e imprime o resultado");
-    printf("e - imprime a string na ordem reversa");
-    printf("f - retorna a quantidade de vezes que um caractere ocorre na string");
-    printf("g - retorna uma substring de S1 a partir de uma posição e do tamanho da substring");
-    printf("h - substituir a primeira ocorrencia de C1 da primeira string por C2.");
-    scanf(" %c", op);
+    int i, j = 0, pos, tamanhoSubS;
+    char substring[LENGTH];
 
-    switch (op)
+    printf("Informe a posicao de inicio da substring: ");
+    scanf("%i", &pos);
+
+    printf("Informe o tamanho para a substring: ");
+    scanf("%i", &tamanhoSubS);
+
+    for (i = pos; i < (tamanhoSubS + pos); i++)
     {
-        case 'a':
-            leString();
-            break;
-        case 'b':
-            tamanhoString(s1);
-            break;
-
-        case 'c':
-            compString(s1, leS2());
-            break;
-
-        case 'd':
-
-            break;
-
-        case 'e':
-
-            break;
-
-        case 'f':
-
-            break;
-
-        case 'g':
-
-            break;
-
-        case 'h':
-
-            break;
+        substring[j] = s1[i];
+        j++;
     }
 
+    printf("%s\n", substring);
+
+    return 0;
+}
+
+int substitui(char s1[], char c1, char c2)
+{
+    int i;
+    char subst[LENGTH];
+
+    strcpy(subst, s1);
+
+    for (i = 0; i < 20; i++)
+    {
+        if (s1[i] == c1)
+        {
+            subst[i] = c2;
+            break;
+        }
+    }
+
+    printf("%s\n", subst);
 
     return 0;
 }
