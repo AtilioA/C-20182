@@ -5,8 +5,8 @@
 #define LIN 5
 #define COL 5
 
-int leMat(int mat[LIN][COL], int linhas, int colunas);
-int printaDPMat(int mat[LIN][COL], int linhas, int colunas);
+int leMat(int matriz[LIN][COL], int linhas, int colunas);
+int printaDPMat(int matriz[LIN][COL], int linhas, int colunas);
 
 int main()
 {
@@ -18,28 +18,28 @@ int main()
     return 0;
 }
 
-int leMat(int mat[LIN][COL], int linhas, int colunas)
+int leMat(int matriz[LIN][COL], int linhas, int colunas)
 {
     int i, j;
 
-    for (i = 0; i < linhas; i++)
+    for (i = 1; i <= linhas; i++)
     {
-        for (j = 0; j < colunas; j++)
+        for (j = 1; j <= colunas; j++)
         {
             printf("[%i][%i] = ", i, j);
-            scanf("%i", &mat[i][j]);
+            scanf("%i", &matriz[i][j]);
         }
     }
     return 0;
 }
 
-int printaDPMat(int mat[LIN][COL], int linhas, int colunas)
+int printaDPMat(int matriz[LIN][COL], int linhas, int colunas)
 {
     int i, j;
 
-    for (i = 0; i < linhas; i++)
+    for (i = 1; i < linhas; i++)
     {
-        printf("%i\n", mat[i][j]);
+        printf("%i\n", matriz[i][i]);
     }
 
     return 0;
