@@ -1,22 +1,27 @@
-/* 3. 4. Faça um programa que leia uma matriz A 5x3. Crie uma
+/* 4. Faça um programa que leia uma matriz A 5x3. Crie uma
 matriz B 3x5 transposta de A e imprima; */
 
 #include <stdio.h>
 
-#define LIN 4
-#define COL 2
+#define LIN 5
+#define COL 3
 
 int leMat(int matriz[LIN][COL]);
 int printaMat(int matriz[LIN][COL]);
 int transposta(int matriz[LIN][COL]);
+int printaMatT(int matriz[COL][LIN]);
 
-int main()
+    int main()
 {
     int matriz[LIN][COL];
 
     leMat(matriz);
+    printf("Matriz original:\n");
     printaMat(matriz);
+    printf("\n");
+    printf("Matriz transposta:\n");
     transposta(matriz);
+    printf("\n");
 
     return 0;
 }
@@ -43,28 +48,47 @@ int printaMat(int matriz[LIN][COL])
 {
     int i, j;
 
-    for (i = 0; i < LIN; i++)
+    for (i = 1; i <= LIN; i++)
     {
-        for (j = 0; j < COL; j++)
+        for (j = 1; j <= COL; j++)
         {
-            printf("%i\n", matriz[i][j]);
+            printf("%i ", matriz[i][j]);
         }
+        printf("\n");
     }
 
     return 0;
 }
 
+// ??
 int transposta(int matriz[LIN][COL])
 {
-    int i, j, transposta[COL][LIN];
+    int i, j, matrizT[COL][LIN];
 
-    for (j = 0; j < COL; i++)
+    for (i = 1; i <= LIN; i++)
     {
-        for (i = 0; i < LIN; i++)
+        for (j = 1; j <= COL; j++)
         {
-            transposta[i][j] = matriz[j][i];
-            printf("%i", transposta[i][j]);
+            matrizT[j][i] = matriz[i][j];
         }
+    }
+
+    printaMatT(matrizT);
+
+    return 0;
+}
+
+int printaMatT(int matriz[COL][LIN])
+{
+    int i, j;
+
+    for (i = 1; i <= COL; i++)
+    {
+        for (j = 1; j <= LIN; j++)
+        {
+            printf("%i ", matriz[i][j]);
+        }
+        printf("\n");
     }
 
     return 0;
