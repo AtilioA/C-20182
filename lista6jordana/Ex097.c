@@ -45,23 +45,27 @@ int verificaSubstring(char string[], char substring[])
     // Verifica cada possível substring de uma linha da matriz
     for (i = 0; i < strlen(string); i++)
     {
-        for (k = i, j = 0; k < strlen(string); k++, j++)
+        if (string[i] == substring[0])
         {
-            if (substring[j] == string[k])
+            for (j = 0; j < strlen(string); j++)
             {
-                ocorre++;
+                if (string[i + j] == substring[j])
+                {
+                    ocorre++;
+                }
             }
         }
 
-        if (ocorre == strlen(substring))
-        {
-            return 1;
-        }
+    if (ocorre == strlen(substring))
+    {
+        return 1;
+    }
 
-        else
-        {
-            ocorre = 0;
-        }
+    else
+    {
+        ocorre = 0;
+    }
+
     }
     return 0;
 }

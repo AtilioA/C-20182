@@ -14,7 +14,7 @@ Saída: “IGUAL” se C corresponder ao resultado da multiplicação de A por B
 
 #include <stdio.h>
 
-#define I 3
+#define I 2
 #define J 3
 
 void prodMat(int A[I][J], int B[I][J], int AB[I][J])
@@ -127,6 +127,12 @@ void printaMat(int mat[I][J])
 
 int main()
 {
+    int abc;
+
+    scanf("%i", &abc);
+
+    int ABC[abc + 1];
+
     int A[I][J], B[I][J], C[I][J], AB[I][J];
 
     printf("Informe a matriz A:\n");
