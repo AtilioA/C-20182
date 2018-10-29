@@ -8,17 +8,144 @@ possíveis para se jogar. */
 #include <stdio.h>
 #include <string.h>
 
-void insereJogada(char op, int col, int lin, char J[3][3]) // DONE:
+void printaMat(char A[3][3])
 {
-    if (verificaPos(col, lin, J) == 1)
+    int i, j;
+
+    for (i = 0; i < 3; i++)
     {
-        J[col][lin] = op;
+        for (j = 0; j < 3; j++)
+        {
+            printf("%c ", A[i][j]);
+        }
+        printf("\n");
     }
+
+    printf("\n");
 }
 
-int verificaJogo(char J[3][3]) // O jogo ainda tem posições? // DONE:?
+int marcouTres(char J[3][3])
+{
+    int i, j, k, marcouO, marcouX;
+
+    for (i = 0; i < 3; i++) // Linhas
+    {
+        marcouO = 0;
+        marcouX = 0;
+        for (j = 0; j < 3; j++)
+        {
+            if (J[i][j] == 'X')
+            {
+                marcouX++;
+            } 
+            if (J[i][j] == 'O')
+            {
+                marcouO++;
+            } 
+        }
+
+        if (marcouX == 3)
+        {
+            printf("O jogador X venceu\n!");
+            printaMat(J);
+
+            return 1;
+        }
+        if (marcouO == 3)
+        {
+            printf("O jogador O venceu\n!");
+            printaMat(J);
+
+            return 1;
+        }
+    }
+        
+    for (i = 0; i < 3; i++) // Colunas
+    {
+        marcouO = 0;
+        marcouX = 0;
+
+        for (j = 0; j < 3; j++)
+        {
+            if (J[j][i] == 'X')
+            {
+                marcouX++;
+            } 
+            if (J[i][j] == 'O')
+            {
+                marcouO++;
+            } 
+        }
+
+        if (marcouX == 3)
+        {
+            printf("O jogador X venceu\n!");
+            printaMat(J);
+            return 1;
+        }
+        if (marcouO == 3)
+        {
+            printf("O jogador O venceu\n!");
+            printaMat(J);
+            return 1;
+        }
+    }
+
+    for (i = 0; i < 3; i++) // Diagonais
+    {
+        marcouO = 0;
+        marcouX = 0;
+
+        for (j = 0; j < 3; j++)
+        {
+            if (J[i][i] == 'X')
+            {
+                marcouX++;
+            }
+            if (J[i][i] == 'O')
+            {
+                marcouO++;
+            }
+        }
+
+        for (k = 3; k > 0; k++)
+        {
+            if (J[k][i] == 'X')
+            {
+                marcouX++;
+            }
+
+            if (J[k][i] == 'O')
+            {
+                marcouO++;
+            }
+        }
+
+        if (marcouX == 3)
+        {
+            printf("O jogador X venceu\n!");
+            printaMat(J);
+            return 1;
+        }
+        if (marcouO == 3)
+        {
+            printf("O jogador O venceu\n!");
+            printaMat(J);
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+int verificaJogo(char J[3][3]) // O jogo ainda tem posições?
 {
     int i, j, ocupado = 0;
+
+    if (marcouTres(J) == 1)
+    {
+        return 0;
+    }
 
     for (i = 0; i < 3; i++)
     {
@@ -42,9 +169,9 @@ int verificaJogo(char J[3][3]) // O jogo ainda tem posições? // DONE:?
     }
 }
 
-int verificaPos(char col, int lin, char J[3][3]) // DONE:?
+int verificaPos(char col, int lin, char J[3][3])
 {
-    if (J[col][lin] != 'O' && J[col][lin] != 'X')
+    if (J[lin][col] != 'O' && J[lin][col] != 'X')
     {
         return 1;
     }
@@ -53,14 +180,27 @@ int verificaPos(char col, int lin, char J[3][3]) // DONE:?
     {
         return 0;
     }
-
-    /* Verifica a posição informada pelo usuário
-    *  Compara com a matriz atual do jogo
-    *  Se a posição estiver preenchida, retorna 0
-    */
 }
 
-void inicializaMat(char A[3][3]) // DONE:
+void insereJogada(char jogador, int col, int lin, char J[3][3])
+{
+    if (jogador == 'X')
+    {
+        if (verificaPos(col, lin, J) == 1)
+        {
+            J[lin][col] = 'X';
+        }
+    }
+    else if (jogador == 'O')
+    {
+        if (verificaPos(col, lin, J) == 1)
+        {
+            J[lin][col] = 'O';
+        }
+    }
+}
+
+void inicializaMat(char A[3][3])
 {
     int i, j;
 
@@ -68,40 +208,61 @@ void inicializaMat(char A[3][3]) // DONE:
     {
         for (j = 0; j < 3; j++)
         {
-            A[i][j] = 0;
+            A[i][j] = '_';
         }
     }
 }
 
-void printaMat(char A[3][3]) // DONE:
+int ehPar(int n)
 {
-    int i, j;
-
-    for (i = 0; i < 3; i++)
+    if (n % 2 == 0)
     {
-        for (j = 0; j < 3; j++)
-        {
-            printf("%i ", A[i][j]);
-        }
-        printf("\n");
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+char quemJoga(int n)
+{
+    if (ehPar(n))
+    {
+        printf("Vez do jogador X.\n");
+        printf("Informe onde irá jogar [coluna, linha]: ");
+        return 'X';
+    }
+    else
+    {
+        printf("Vez do jogador O.\n");
+        printf("Informe onde irá jogar [coluna, linha]: ");
+        return 'O';
     }
 
-    printf("\n");
 }
 
 int main()
 {
-    char op, X[3][3], O[3][3];
+    char jogador, J[3][3];
+    int turnos, col, lin;
 
-    inicializaMat(X);
-    inicializaMat(O);
+    inicializaMat(J);
 
-/*
-    while (sei la o que)
+    printf("== JOGO DA VELHA ==\n");
+
+    while (verificaJogo(J) == 1)
     {
-        // jogo
+        printaMat(J);
+
+        jogador = quemJoga(turnos);
+        scanf("%i%i", &lin, &col);
+        lin -= 1; // contagem começa do 1
+        col -= 1; //
+
+        insereJogada(jogador, col, lin, J);
+        turnos++;
     }
-*/
 
     return 0;
 }
