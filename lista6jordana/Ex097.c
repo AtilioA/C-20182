@@ -4,8 +4,8 @@ ocorre em alguma linha da matriz. */
 #include <stdio.h>
 #include <string.h>
 
-#define LIN 2
-#define COL 2
+#define LIN 3
+#define COL 3
 
 int leMat(char matriz[LIN][COL])
 {
@@ -15,7 +15,7 @@ int leMat(char matriz[LIN][COL])
     {
         for (j = 0; j < COL; j++)
         {
-            printf("a%i,%i = ", i + 1 , j + 1);            
+            printf("a%i,%i = ", i + 1, j + 1);
             scanf(" %c", &matriz[i][j]);
         }
     }
@@ -23,36 +23,10 @@ int leMat(char matriz[LIN][COL])
     return matriz[LIN][COL];
 }
 
-int verificaPalavraMat(char matriz[LIN][COL], char palavra[])
-{
-    int i, j, ocorreLetra, tamanhoPalavra = strlen(palavra);
-
-    for (i = 0; i < LIN; i++)
-    {
-        for (j = 0; j < COL; j++)
-        {
-            if (matriz[j][i] == palavra[j]) // ???
-            {
-                ocorreLetra++;
-            }
-        }
-    }
-
-    printf("oc %i, len %i\n", ocorreLetra, tamanhoPalavra);
-
-    if (ocorreLetra == tamanhoPalavra)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-int printaMat(char matriz[LIN][COL])
+void printaMat(char matriz[LIN][COL])
 {
     int i, j;
+    char palavraLinha[LIN];
 
     for (i = 0; i < LIN; i++)
     {
@@ -62,6 +36,50 @@ int printaMat(char matriz[LIN][COL])
         }
         printf("\n");
     }
+}
+
+int verificaSubstring(char string[], char substring[])
+{
+    int ocorre = 0, i = 0, k = 0, j = 0;
+
+    // Verifica cada possível substring de uma linha da matriz
+    for (i = 0; i < strlen(string); i++)
+    {
+        for (k = i, j = 0; k < strlen(string); k++, j++)
+        {
+            if (substring[j] == string[k])
+            {
+                ocorre++;
+            }
+        }
+
+        if (ocorre == strlen(substring))
+        {
+            return 1;
+        }
+
+        else
+        {
+            ocorre = 0;
+        }
+    }
+    return 0;
+}
+
+int verificaPalavraMat(char matriz[LIN][COL], char palavra[])
+{
+    int i;
+
+    // Testa com cada linha da matriz
+    for (i = 0; i < LIN; i++)
+    {
+        if (verificaSubstring(matriz[i], palavra))
+        {
+            return 1;
+        }
+    }
+
+    printf("\n");
 
     return 0;
 }
@@ -69,8 +87,7 @@ int printaMat(char matriz[LIN][COL])
 int main()
 {
     int i;
-    char palavra[30];
-    char A[LIN][COL];
+    char palavra[30], A[LIN][COL];
 
     leMat(A);
     printf("Informe a palavra: ");
@@ -84,6 +101,8 @@ int main()
     }
     else
     {
-        printf("A palavra nao ocorre na matriz.\n");
+        printf("A palavra NAO ocorre na matriz.\n");
     }
+
+    return 0;
 }
