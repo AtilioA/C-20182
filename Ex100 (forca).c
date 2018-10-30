@@ -29,7 +29,7 @@ int main()
     return 0;
 }
 
-void printaForca(int *vidas) // OK
+void printaForca(int *vidas)
 {
     if (*vidas == 4)
     {
@@ -139,8 +139,3 @@ int verificaLetra(char letra, char palavra[], char *palavraForca, int *vidas)
 
     return 0;
 }
-
-/* fala meu bom
-
-
-*/
