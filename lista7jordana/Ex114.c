@@ -9,7 +9,6 @@ do array. */
 
 void leArray(int *V, int t)
 {
-    int i;
 
     printf("Informe os valores do primeiro array:\n");
     for (i = 0; i < t; i++)
@@ -53,7 +52,7 @@ void printaArray(int A[], int tA)
     }
 }
 
-int main()
+main()
 {
     int *A, tA, *B, tB, *S;
 
@@ -73,6 +72,4 @@ int main()
 
     somaArray(A, tA, B, tB, S);
     printaArray(S, tA);
-
-    return 0;
 }
