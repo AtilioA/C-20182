@@ -1,83 +1,100 @@
-/* 5) Faça um programa que permita ao usuário entrar com uma matriz de 3 x 3 números
-inteiros. Em seguida, gere um vetor pela soma dos números de cada coluna da matriz e
-mostre esse vetor na tela. Por exemplo, a matriz:
-Gerará um vetor onde cada posição é a soma das colunas da matriz. Ficando da seguinte
-forma: */
+/* 6) Faça um programa que leia uma matriz de 5 linhas e 4 colunas contendo as seguintes
+informações sobre alunos de uma disciplina, sendo todas as informações do tipo inteiro:
+a. Primeira coluna: número de matrícula
+b. Segunda coluna: média das provas
+c. Terceira coluna: média dos trabalhos
+d. Quarta coluna; nota final
+Elabore um programa que:
+
+i) Leia as três primeiras informações de cada aluno (matrícula, média das provas e
+média dos trabalhos)
+
+ii) Calcula a nota final como sendo a soma da média das provas e da média dos
+trabalhos
+
+iii) Imprima a matrícula do aluno que obteve a maior nota final (assuma que só existe
+uma maior nota)
+
+iv) Imprima a média aritmética das notas finais */
 
 #include <stdio.h>
 
-void leMat(int matriz[3][3])
-{
-    int i, j;
+#define lin 5
+#define col 4
 
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            scanf("%i", &matriz[i][j]);
-        }
-    }
-}
-
-void printaMat(int matriz[3][3])
+void printaMat(int A[lin][col])
 {
     int i, j;
 
     printf("\n");
-
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < lin; i++)
     {
-        for (j = 0; j < 3; j++)
+        for (j = 0; j < col; j++)
         {
-            printf("%i ", matriz[i][j]);
+            printf("%i ", A[i][j]);
         }
         printf("\n");
     }
-
     printf("\n");
 }
 
-void somaCol(int matriz[3][3], int vetor[3])
+void notaFinal(int A[lin][col])
 {
-    int i, j, somaCol = 0;
+    int i, j, notaFinal = 0, maiorNotaFinal = 0;
+    float mediaFinais = 0;
 
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < lin; i++)
     {
-        somaCol = 0;
-
-        for (j = 0; j < 3; j++)
+        notaFinal = 0;
+        for (j = 1; j < col; j++)
         {
-            somaCol += matriz[j][i];
-        }
+            if (j >= 1 && j <= 2)
+            {
+                notaFinal += A[i][j];
+            }
 
-        vetor[i] = somaCol;
+            else if (j == 3)
+            {
+                A[i][j] = notaFinal;
+                mediaFinais += notaFinal;
+
+                if (notaFinal > maiorNotaFinal)
+                {
+                    maiorNotaFinal = notaFinal;
+                }
+            }
+        }
     }
+
+    mediaFinais /= lin;
+    printf("\nMaior nota final: %i.\n", maiorNotaFinal);
+    printf("Media das notas finais: %g.\n", mediaFinais);
+
+    printaMat(A);
 }
 
-void printaVet(int vetor[3])
+void leMat(int A[lin][col])
 {
-    int i;
+    int i, j;
 
-    printf("[ ");
-    for (i = 0; i < 3; i++)
+    printf("Informe os elementos da matriz\n[matricula / media das provas / media dos trabalhos]:\n");
+    for (i = 0; i < lin; i++)
     {
-        printf("%i ", vetor[i]);
+        printf("Aluno %i:\n", i + 1);
+        for (j = 0; j < col - 1; j++)
+        {
+            scanf("%i", &A[i][j]);
+        }
     }
-    printf("]");
-
-    printf("\n");
 }
 
 int main()
 {
-    int A[3][3], somaC[3];
+    int alunos[lin][col];
 
-    leMat(A);
-    printaMat(A);
+    leMat(alunos);
 
-    somaCol(A, somaC);
-    printf("Vetor da soma das colunas da matriz:\n");
-    printaVet(somaC);
+    notaFinal(alunos);
 
     return 0;
 }

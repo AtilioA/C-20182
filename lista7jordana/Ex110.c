@@ -1,32 +1,29 @@
-/* 8) Faça um programa que leia 2 valores inteiros e chame uma função que receba estas
-duas variáveis e troque o seu conteúdo, ou seja, esta função é chamada passando duas
-variáveis A e B e, após a execução da função, A conterá o valor de B e B terá o valor de
-A. */
+/* 9) Implemente uma função que calcule a área da superfície e o volume de uma esfera de
+raio R. Essa função deve possuir a seguinte assinatura:
+void calc_esfera(float R, float *area, float *volume); */
 
 #include <stdio.h>
+#include <math.h>
 
-void swap(int *A, int *B)
+#define PI 3.1415
+
+void calc_esfera(float R, float *area, float *volume)
 {
-    int C;
-
-    C = *A;
-    *A = *B;
-    *B = C;
-}
+    *volume = (4 / 3) * PI * R * R * R;
+    *area = 4 * PI * R * R;
+} // não consegui usar pow() triste 
 
 int main()
 {
-    int A, B;
+    float R, areaS, volume;
 
-    printf("Informe A: ");
-    scanf("%i", &A);
+    printf("Informe o raio da esfera: ");
+    scanf("%f", &R);
 
-    printf("Informe B: ");
-    scanf("%i", &B);
+    calc_esfera(R, &areaS, &volume);
 
-    swap(&A, &B);
-
-    printf("%i, %i\n", A, B);
+    printf("Area da superficie da esfera: %g\n", areaS);
+    printf("Volume da esfera: %g\n", volume);
 
     return 0;
 }

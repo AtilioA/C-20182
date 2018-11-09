@@ -1,37 +1,32 @@
-/* 7) Escreva um programa que declare um inteiro, um float e um char, e ponteiros para
-inteiro, float, e char. Leia os valores do inteiro, float e char do teclado, armazene nas
-variáveis e depois associe as variáveis aos ponteiros (use &). Modifique os valores de
-cada variável usando os ponteiros. Imprima os valores das variáveis antes e após a
-modificação. */
+/* 8) Faça um programa que leia 2 valores inteiros e chame uma função que receba estas
+duas variáveis e troque o seu conteúdo, ou seja, esta função é chamada passando duas
+variáveis A e B e, após a execução da função, A conterá o valor de B e B terá o valor de
+A. */
 
 #include <stdio.h>
 
+void swap(int *A, int *B)
+{
+    int C;
+
+    C = *A;
+    *A = *B;
+    *B = C;
+}
+
 int main()
 {
-    int enteiro, *penteiro;
-    float floate, *pfloate;
-    char xar, *pixar;
+    int A, B;
 
-    printf("Informe o valor do enteiro: ");
-    scanf(" %i", &enteiro);
+    printf("Informe A: ");
+    scanf("%i", &A);
 
-    printf("Informe o valor do enteiro: ");
-    scanf(" %f", &floate);
+    printf("Informe B: ");
+    scanf("%i", &B);
 
-    printf("Informe o valor do enteiro: ");
-    scanf(" %c", &xar);
+    swap(&A, &B);
 
-    penteiro = &enteiro;
-    pfloate = &floate;
-    pixar = &xar;
-
-    printf("%i\n%f\n%c\n", *penteiro, *pfloate, *pixar);
-
-    *penteiro = 2832;
-    *pfloate = 2832.0;
-    *pixar = '2';
-    
-    printf("%i\n%f\n%c\n", *penteiro, *pfloate, *pixar);
+    printf("%i, %i\n", A, B);
 
     return 0;
 }

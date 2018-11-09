@@ -1,52 +1,56 @@
-/* 10) Crie um programa que contenha um array de inteiros contendo 5 elementos. Utilizando
-apenas aritmetica de ponteiros, leia os valores desse array do teclado e imprima o dobro
-de cada valor lido. */
+/* 11) Escreva uma função que aceita como parâmetro um array de inteiros com N valores
+e determine o maior elemento do array e o número de vezes que este elemento ocorreu
+no array. Por exemplo, para um array com os seguintes elementos: 5, 2, 15, 3, 7, 15, 8,
+6, 15, a função deve retorna para o programa que a chamou o valor 15 e o número 3
+(indicando que o número 15 ocorreu 3 vezes). A função deve ser do tipo void. */
 
 #include <stdio.h>
-#include <stdlib.h>
 
-void readArray(int arado[5])
-{ // nossa como euy seui ingleis
-    int i;
-
-    printf("Informe os valores do array:\n");
-    for (i = 0; i < 5; i++)
-    {
-        scanf("%i", &arado[i]);
-    }
-}
-
-void printArray(int arado[5])
+void maiorDoArray(int t, int array[t], int *maiorElem, int *vezesMaior)
 {
     int i;
 
-    for (i = 0; i < 5; i++)
+    *maiorElem = array[0];
+
+    for (i = 0; i < t; i++)
     {
-        printf("%i\n", arado[i]);
+        if (array[i] > *maiorElem)
+        {
+            *maiorElem = array[i];
+        }
+        else if (array[i] == *maiorElem)
+        {
+            ++*vezesMaior;
+        }
     }
-    printf("\n");
 }
 
-void doubleArray(int arado[5])
+void leArray(int t, int array[t])
 {
     int i;
 
-    for (i = 0; i < 5; i++)
+    printf("Informe os elementos do array:\n");
+
+    for (i = 0; i < t; i++)
     {
-        *(arado + i) = *(arado + i) * 2;
+        scanf("%i", &array[i]);
     }
 }
 
 int main()
 {
-    int *pontedoArray;
+    int t, maiorElem, vezesMaior = 0;
 
-    pontedoArray = (int *)malloc(5 * sizeof(int));
+    printf("Informe o tamanho do array: ");
+    scanf("%i", &t);
 
-    readArray(pontedoArray);
+    int array[t];
 
-    doubleArray(pontedoArray);
-    printArray(pontedoArray);
+    leArray(t, array);
+
+    maiorDoArray(t, array, &maiorElem, &vezesMaior);
+
+    printf("O maior elemento do array eh %i e ele ocorreu %i vezes.\n", maiorElem, vezesMaior);
 
     return 0;
 }

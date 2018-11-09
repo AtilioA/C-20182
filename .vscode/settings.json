@@ -15,4 +15,5 @@
     "editor.fontSize": 18,
     "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe",
     "todohighlight.isEnable": true,
+    "python.pythonPath": "C:\\Users\\Casa\\Anaconda3\\python.exe",
 }

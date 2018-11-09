@@ -1,110 +1,83 @@
-/* 3) Dizemos que uma matriz quadrada inteira é um quadrado mágico se a soma dos
-elementos de cada linha, a soma dos elementos de cada coluna e a soma dos elementos
-das diagonais principal e secundária são todas iguais. Leia uma matriz 10x10 do usuário
-e imprima se ela é um quadro mágico ou não. */
+/* 5) Faça um programa que permita ao usuário entrar com uma matriz de 3 x 3 números
+inteiros. Em seguida, gere um vetor pela soma dos números de cada coluna da matriz e
+mostre esse vetor na tela. Por exemplo, a matriz:
+Gerará um vetor onde cada posição é a soma das colunas da matriz. Ficando da seguinte
+forma: */
 
 #include <stdio.h>
 
-#define I 3
-#define J 3
-
-void leMat(int matriz[I][J])
+void leMat(int matriz[3][3])
 {
     int i, j;
 
-    for (i = 0; i < I; i++)
+    for (i = 0; i < 3; i++)
     {
-        for (j = 0; j < J; j++)
+        for (j = 0; j < 3; j++)
         {
             scanf("%i", &matriz[i][j]);
         }
     }
 }
 
-void printaMat(int matriz[I][J])
+void printaMat(int matriz[3][3])
 {
     int i, j;
 
-    for (i = 0; i < I; i++)
+    printf("\n");
+
+    for (i = 0; i < 3; i++)
     {
-        for (j = 0; j < J; j++)
+        for (j = 0; j < 3; j++)
         {
             printf("%i ", matriz[i][j]);
         }
         printf("\n");
     }
+
     printf("\n");
 }
 
-int quadMagico(int matriz[I][J])
+void somaCol(int matriz[3][3], int vetor[3])
 {
-    int i, j, k, somaL = 0, antL = 0, somaC = 0, antC = 0, somaDP = 0, somaDS = 0;
+    int i, j, somaCol = 0;
 
-    for (i = 0; i < I; i++)
+    for (i = 0; i < 3; i++)
     {
-        somaDP += matriz[i][i];
-    }
+        somaCol = 0;
 
-    for (j = I - 1, k = 0; j >= 0; j--, k++)
-    {
-        somaDS += matriz[j][k];
-    }
-
-    for (i = 0; i < I; i++)
-    {
-        antL = somaL;
-        somaL = 0;
-
-        for (j = 0; j < J; j++)
+        for (j = 0; j < 3; j++)
         {
-            somaL += matriz[i][j];
+            somaCol += matriz[j][i];
         }
 
-        if (i > 0 && somaL != antL)
-        {
-            return 0;
-        }
+        vetor[i] = somaCol;
     }
+}
 
-    for (i = 0; i < I; i++)
+void printaVet(int vetor[3])
+{
+    int i;
+
+    printf("[ ");
+    for (i = 0; i < 3; i++)
     {
-        antC = somaC;
-        somaC = 0;
-
-        for (j = 0; j < J; j++)
-        {
-            somaC += matriz[j][i];
-        }
-
-        if (i > 0 && somaC != antC)
-        {
-            return 0;
-        }
+        printf("%i ", vetor[i]);
     }
+    printf("]");
 
-    if (somaL == somaC && somaC == somaDP && somaDP == somaDS)
-    {
-        return 1;
-    }
-
-    return 0;
+    printf("\n");
 }
 
 int main()
 {
-    int A[I][J];
+    int A[3][3], somaC[3];
 
     leMat(A);
     printaMat(A);
 
-    if (quadMagico(A) == 1)
-    {
-        printf("A matriz eh um quadrado magico.\n");
-    }
-    else
-    {
-        printf("A matriz NAO eh um quadrado magico.\n");
-    }
+    somaCol(A, somaC);
+    printf("Vetor da soma das colunas da matriz:\n");
+    printaVet(somaC);
 
     return 0;
 }
