@@ -7,8 +7,11 @@ do array. */
 #include <stdio.h>
 #include <stdlib.h>
 
+// merdaaaaaaaaaaaaaaaaaaaaa
+
 void leArray(int *V, int t)
 {
+    int i;
 
     printf("Informe os valores do primeiro array:\n");
     for (i = 0; i < t; i++)
@@ -23,7 +26,7 @@ int somaArray(int A[], int tA, int B[], int tB, int *S)
 
     if (tA != tB)
     {
-        printf("\nreturn 0\n");
+        printf("\n\n0\n");
         return 0;
     }
 
@@ -36,7 +39,7 @@ int somaArray(int A[], int tA, int B[], int tB, int *S)
             *(S + i) = *(A + i) + *(B + i);
         }
 
-        printf("\nreturn 1\n");
+        printf("\n\n1\n");
         free(S);
         return 1;
     }
@@ -52,7 +55,7 @@ void printaArray(int A[], int tA)
     }
 }
 
-main()
+int main()
 {
     int *A, tA, *B, tB, *S;
 
@@ -61,7 +64,7 @@ main()
     A = (int *)malloc(tA * sizeof(int));
 
     leArray(A, tA);
-    printaArray(B, tB);
+    printaArray(A, tA);
 
     printf("Informe o tamanho do segundo array: ");
     scanf("%i", &tB);

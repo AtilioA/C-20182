@@ -12,7 +12,6 @@ int negativos(float *vet, int N) // ???
     for (i = 0; i < N; i++)
     {
         printf("abracadabra");
-        printf("%i\n", *(vet+i));
         if (vet[i] < 0)
         {
             nNegativos++;
@@ -28,7 +27,7 @@ void leVet(int N, float *vet[N])
 {
     int i;
 
-    printf("Informe os %i valores do vetor: ", N);
+    printf("Informe os %i valores do vetor:\n", N);
     for (i = 0; i < N; i++)
     {
         scanf("%i", &vet[i]);
@@ -48,7 +47,7 @@ void printaVet(int N, float *vet[N])
 
 int main()
 {
-    int N, negativ = 0;
+    int N, *negativ;
 
     printf("Informe o tamanho do vetor: ");
     scanf("%i", &N);
@@ -58,7 +57,7 @@ int main()
     leVet(N, &vetor);
     printaVet(N, &vetor);
 
-    negativ = negativos(vetor, N);
+    *negativ = negativos(vetor, N);
 
     printf("%i\n", negativos);
 
