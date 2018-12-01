@@ -9,7 +9,6 @@ imprima a sentença original.
 #include <stdio.h>
 #include <math.h>
 
-
 int decifra(char frase[], int cifra);
 int distA(char frase);
 int maiuscminusc(char frase);
@@ -57,8 +56,6 @@ int decifra(char frase[], int cifra)
         {
             frase[i] -= cifra;
         }
-
-
     }
 
     for (i = 0; frase[i] != '\0'; i++)
