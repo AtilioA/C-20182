@@ -46,6 +46,17 @@ int main()
     somaMat(matriz1, matriz2, soma, M, N);
     printaMat(soma, M, N);
 
+
+    for (i = 0; i < N; i++)
+    {
+        free(matriz1[i]);
+        free(matriz2[i]);
+        free(soma[i]);
+    }
+    free(matriz1);
+    free(matriz2);
+    free(soma);
+
     return 0;
 }
 

@@ -6,7 +6,7 @@ conteúdo dessa string. O programa deve imprimir a string sem suas vogais. */
 #include <stdlib.h>
 #include <string.h>
 
-void alocaString(char **s, int t);
+char *alocaString(int t);
 int ehVogal(char c);
 void removeVogais(char *s, int t);
 
@@ -18,28 +18,35 @@ int main()
     printf("Informe o tamanho da string: ");
     scanf("%i", &t);
 
-    alocaString(&s, t + 1);
+    s = alocaString(t + 1);
 
     getchar();
+    printf("Informe a string:\n");
     fgets(s, t, stdin);
 
     removeVogais(s, t);
 
-    printf("%s", s);
+    printf("%s\n", s);
     free(s);
 
    return 0;
 }
 
-void alocaString(char **s, int tam)
+char *alocaString(int tam)
 {
-    *s = (char *)malloc(tam * sizeof(char));
+    char *s;
+
+    s = (char *)malloc(tam * sizeof(char));
+
+    memset(s, 0, tam);
+
+    return s;
 }
 
 // Remove espaços e aloca string para o novo tamanho
 void removeVogais(char *s, int tam)
 {
-    int i, j, novoTamanho = tam, vogaisRetiradas = 0;
+    int i, j, tamOriginal = strlen(s), novoTamanho = strlen(s), vogaisRetiradas = 0;
 
     for (i = 0; i < tam; i++)
     {
@@ -58,9 +65,11 @@ void removeVogais(char *s, int tam)
         }
     }
 
-    printf("\nTamanho original (%i) - %i vogais retiradas = %i\n", tam, vogaisRetiradas, novoTamanho);
+    printf("\nTamanho original (%i) - %i vogais retiradas = %i\n", tamOriginal - 1, vogaisRetiradas, novoTamanho - 1);
 
-    alocaString(&s, novoTamanho);
+    s = alocaString(novoTamanho);
+
+    free(s);
 }
 
 int ehVogal(char c)

@@ -39,7 +39,12 @@ int main()
     {
         free(matriz[i]);
     }
+    for (int i = 0; i < M; i++)
+    {
+        free(transposta[i]);
+    }
     free(matriz);
+    free(transposta);
     free(maior);
     free(posicoes);
     return 0;
@@ -78,8 +83,6 @@ void maiores(int **M, int *maiores, int *posicoes, int l, int c)
     posicoes[qtd] = 0;
     posicoes[qtd + 1] = 0;
 
-    printf("foi!");
-
     for (k = 0; k < 3; k++)
     {
         for (i = 0; i < l; i++)
@@ -108,7 +111,7 @@ void maiores(int **M, int *maiores, int *posicoes, int l, int c)
 
 int tresMaiores(int **M, int l, int c, int maior)
 {
-    int i, j, outrosMaiores;
+    int i, j, outrosMaiores = 0;
 
     for (i = 0; i < l; i++)
     {
