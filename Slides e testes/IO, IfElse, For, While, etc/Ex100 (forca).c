@@ -4,27 +4,35 @@
 
 void printaForca();
 int mudaString(char palavra[], char *palavraForca, int t);
-int verificaLetra(char letra, char palavra[], char *palavraForca, int *vidas);
-void jogaForca(char palavra[], char *palavraForca, int *vidas);
+int verificaLetra(char letra, char palavra[], char *palavraForca, int *vidas, int *acertos, char *letrasErradas);
+void jogaForca(char palavra[], char *palavraForca, int *vidas, char *r);
 
+// Se a mesma letra for usada mais de uma vez, erros/acertos serão contados novamente.
 int main()
 {
     int i, *vidas, t = 50;
     *vidas = 4;
     char *palavra;      // string de entrada
     char *palavraForca; // string com _
+    char *r;
+    r = (char *)malloc(sizeof(char));
+    r = "S";
     palavra = (char *)malloc(t * sizeof(char));
 
-    printf("Informe uma string: ");
+    printf("Informe uma string para jogar: ");
     fgets(palavra, 50, stdin);
     palavraForca = (char *)malloc((strlen(palavra)) * sizeof(char));
 
-    strcpy_s(palavraForca, strlen(palavra), palavra);
-    palavraForca[strlen(palavra)] = '\n';
+    strcpy_s(palavraForca, strlen(palavra) - 1, palavra); // Aqui estava sem -1 e isso faz errar nas posições da string
+    palavraForca[strlen(palavra) - 1] = '\n';
 
-    // printf("%s%s", palavra, palavraForca);
-    printf("%i\n", strcmp(palavra, palavraForca));
-    jogaForca(palavra, palavraForca, vidas);
+    jogaForca(palavra, palavraForca, vidas, r);
+    // printf("Quer jogar novamente? ");
+
+    free(vidas);
+    free(r);
+    free(palavra);
+    free(palavraForca);
 
     return 0;
 }
@@ -77,7 +85,7 @@ void printaForca(int *vidas)
 int mudaString(char palavra[], char *palavraForca, int t)
 {
     int i;
-    for (i = 0; i < (strlen(palavra) - 1); i++)
+    for (i = 0; i < (strlen(palavra) - 1) && i < (strlen(palavraForca) - 1); i++)
     {
         if (palavra[i] != ' ')
         {
@@ -88,52 +96,66 @@ int mudaString(char palavra[], char *palavraForca, int t)
     return 0;
 }
 
-void jogaForca(char palavra[], char *palavraForca, int *vidas)
+void jogaForca(char palavra[], char *palavraForca, int *vidas, char *r)
 {
-    int i;
-    char op, r;
+    int i, a = 0;
+    int *acertos = &a;
+    char op;
+    char *letrasErradas;
+    letrasErradas = (char *)malloc(sizeof(char));
+    memset(letrasErradas, 0, 4);
+
     mudaString(palavra, palavraForca, 50);
 
-    while ((strcmp(palavra - 1, palavraForca) != 0) && *vidas > 0)
+    while ((strcmp(palavra - 1, palavraForca) != 0) && *vidas > 0 && *acertos < strlen(palavra) - 1)
     {
         printaForca(vidas);
         printf("%s", palavraForca);
+        printf("Erradas: %s", letrasErradas);
 
-        printf("Escolha um letra: ");
+        printf("\nEscolha um letra: ");
         scanf(" %c", &op);
 
-        verificaLetra(op, palavra, palavraForca, vidas);
+        verificaLetra(op, palavra, palavraForca, vidas, acertos, letrasErradas);
     }
-    printf("\n");
+
+    printf("\n----------------------------\n");
     printaForca(vidas);
-
-
-    while (r != 'N' && r != 'n')
+    if (*acertos == strlen(palavra) - 1)
     {
-        printf("FIM DO JOGO! Quer jogar novamente? ");
-        scanf(" %c", r);
-
-        // sei la
+        printf("Fim do jogo! Voce CONSEGUIU!\n");
     }
+    else if (*vidas == 0)
+    {
+        printf("Fim do jogo! Voce PERDEU!\n");
+    }
+    printf("A palavra/frase era: %s", palavra);
+    printf("Erradas: %s\n", letrasErradas); // achei zoado pra conseguir botar espaço entre as letras
+    printf("Chances restantes: %i\n", *vidas);
+
+    free(acertos);
+    free(letrasErradas);
 }
 
-int verificaLetra(char letra, char palavra[], char *palavraForca, int *vidas)
+int verificaLetra(char letra, char palavra[], char *palavraForca, int *vidas, int *acertos, char *letrasErradas)
 {
-    int i, ocorreu = 0;
-    char letraErrada;
+    int i, ocorreu = 0, erros = 0;
 
     for (i = 0; i < (strlen(palavra) - 1); i++)
     {
         if (palavra[i] == letra)
         {
             palavraForca[i] = letra;
+            ++*acertos;
             ocorreu++;
         }
     }
 
     if (ocorreu == 0)
     {
-        letraErrada = letra;
+        erros = 4 - *vidas;
+        letrasErradas[erros] = letra;
+        letrasErradas = (char*)malloc(erros * sizeof(char));
         --*vidas;
     }
 
