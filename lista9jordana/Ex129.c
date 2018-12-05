@@ -126,9 +126,10 @@ int main()
 
     // printaVet(qtdVotos, 6);
 
-    // Calcula o índice do maior/menor número (de votos).
-    // Ele corresponde ao código/candidato com mais/menos votos
-    // Usamos esse índice para identificar tal candidato.
+    /** Calculamos o índice do maior/menor número (de votos).
+     * Ele corresponde ao código/candidato com mais/menos votos;
+     * Usamos esse índice para identificar tal candidato.
+     */
     indiceMaisVotos = indiceMaiorDoVet(qtdVotos, 5);
     maisVotos = qtdVotos[indiceMaisVotos];
 

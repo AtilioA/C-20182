@@ -1,4 +1,4 @@
-/* ) Crie uma função que receba como parâmetros dois vetores de inteiros: x1 e x2 e as suas
+/* 1) Crie uma função que receba como parâmetros dois vetores de inteiros: x1 e x2 e as suas
 respectivas quantidades de elementos: n1 e n2. A função deverá retornar um ponteiro para um
 terceiro vetor, x3, alocado dinamicamente, contendo a união de x1 e x2 e usar o ponteiro qtd
 para retornar o tamanho de x3.
@@ -17,6 +17,7 @@ void leVet(int v[], int n)
     {
         scanf("%i", &v[i]);
     }
+    printf("\n");
 }
 
 void printaVet(int *v, int n)
