@@ -123,6 +123,14 @@ int main()
         }
     } while (P != 0);
 
+    for (int i = 0; i < nCarros; i++)
+    {
+        free(carros[i].marca);
+    }
+    for (int i = 0; i < nCarrosMaisBaratos; i++)
+    {
+        free(carrosMaisBaratos[i].marca);
+    }
     free(carros);
     free(carrosMaisBaratos);
 

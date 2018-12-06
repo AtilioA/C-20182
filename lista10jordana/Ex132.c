@@ -48,6 +48,7 @@ Livro procuraLivro(Livro *livros, int *achou, int nLivros)
 
     printf("\nO livro nao foi encontrado.\n");
     *achou = 0;
+    free(tituloLivroBuscado);
 }
 
 Livro leLivro(Livro livro)
@@ -104,6 +105,9 @@ int main()
     {
         printaDadosLivro(livroProcurado);
     }
+
+    free(achou);
+    free(livros);
 
     return 0;
 }

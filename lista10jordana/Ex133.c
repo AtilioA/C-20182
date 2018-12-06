@@ -195,6 +195,15 @@ int main()
     printf("Funcionarios em ordem crescente de cargo:");
     PrintaFuncs(funcionariosCargo, nFunc);
 
+    for (int i = 0; i < nFunc; i++)
+    {
+        free((funcionarios[i]).nome);
+        free((funcionarios[i]).cargo);
+        free((funcionariosIdade[i]).nome);
+        free((funcionariosIdade[i]).cargo);
+        free((funcionariosCargo[i]).nome);
+        free((funcionariosCargo[i]).cargo);
+    }
     free(funcionarios);
     free(funcionariosIdade);
     free(funcionariosCargo);

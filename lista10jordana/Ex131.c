@@ -204,6 +204,10 @@ int main()
     printf("Aluno com maior media: %s, com media %.2f.\n", alunoMaiorMedia.nome, alunoMaiorMedia.media);
     printf("Aluno com menor media: %s, com media %.2f.\n", alunoMenorMedia.nome, alunoMenorMedia.media);
 
+    for (int i = 0; i < nAlunos; i ++)
+    {
+    free(alunos[i].nome); // É necessário da free nos nomes
+    }
     free(alunos); // yay
 
     return 0;
